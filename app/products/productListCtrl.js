@@ -5,11 +5,16 @@
 (function () {
     "use strict";
     angular.module("productManagement").controller("ProductListCtrl",
-        ProductListCtrl);
+        ["productResource",ProductListCtrl]);
 
-    function ProductListCtrl() {
+    function ProductListCtrl(productResource) {
         var vm = this;
-        vm.products = [
+
+        productResource.query(function(data){
+            vm.products=data;
+        });
+
+        /*vm.products = [
             {
                 "productId": 1,
                 "productName": "Leaf Rake",
@@ -33,7 +38,7 @@
                 "category": "toolbox",
                 "tags": ["tool"],
                 "imageUrl": "https://openclipart.org/image/800px/svg_to_png/73/rejon-Hammer.png"
-            }];
+            }];*/
 
         vm.showImage = false;
 
