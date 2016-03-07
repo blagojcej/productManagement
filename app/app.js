@@ -23,9 +23,14 @@
                 })
                 //Edit Product
                 .state("productEdit",{
-                    url:"products/edit/:productId",
+                    url:"/products/edit/:productId",
                     templateUrl: "app/products/productEditView.html",
                     controller: "ProductEditCtrl as vm"
+                })
+                .state("productDetail",{
+                    url:"/products/:productId",
+                    templateUrl: "app/products/productDetailView.html",
+                    controller: "ProductDetailCtrl as vm"
                 })
         }]
     );
