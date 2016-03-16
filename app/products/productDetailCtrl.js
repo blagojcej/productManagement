@@ -5,12 +5,13 @@
 (function(){
     "use strict";
 
-    angular.module("productManagement").controller("ProductDetailCtrl", ProductDetailCtrl);
+    angular.module("productManagement").controller("ProductDetailCtrl", ["product",ProductDetailCtrl]);
 
-    function ProductDetailCtrl(){
+    function ProductDetailCtrl(product){
         var vm=this;
 
-        vm.product={
+        vm.product=product;
+        /*{
             "productId": 2,
             "productName": "Garden Cart",
             "productCode": "GDN-0023",
@@ -21,7 +22,7 @@
             "category": "garden",
             "tags": ["barrow", "cart", "wheelbarrow"],
             "imageUrl": "https://openclipart.org/image/800px/svg_to_png/58471/garden-cart.png"
-        };
+        };*/
         vm.title="Product Detail: "+vm.product.productName;
 
         if(vm.product.tags){
