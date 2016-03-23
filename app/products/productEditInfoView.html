@@ -21,10 +21,13 @@
 
             <div class="col-md-4">
                 <div class="input-group">
-                    <input class="form-control" id="inputAvailabilityDate" type="text" datepicker-popup="MMM dd, yyyy"
+                    <input class="form-control" id="inputAvailabilityDate" type="text"
+                           uib-datepicker-popup="MMM dd, yyyy"
+                           is-open="vm.opened"
                            ng-model="vm.product.releaseDate"/>
                     <span class="input-group-btn">
-                        <button class="btn btn-default">
+                        <button class="btn btn-default"
+                                ng-click="vm.open($event)">
                             <i class="glyphicon glyphicon-calendar"/>
                         </button>
                     </span>
