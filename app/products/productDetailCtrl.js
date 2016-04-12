@@ -5,9 +5,9 @@
 (function(){
     "use strict";
 
-    angular.module("productManagement").controller("ProductDetailCtrl", ["product",ProductDetailCtrl]);
+    angular.module("productManagement").controller("ProductDetailCtrl", ["product", "productService", ProductDetailCtrl]);
 
-    function ProductDetailCtrl(product){
+    function ProductDetailCtrl(product, productService) {
         var vm=this;
 
         vm.product=product;
@@ -24,6 +24,8 @@
             "imageUrl": "https://openclipart.org/image/800px/svg_to_png/58471/garden-cart.png"
         };*/
         vm.title="Product Detail: "+vm.product.productName;
+
+        vm.marginPercent = productService.calculateMarginPercent(vm.product.price, vm.product.cost);
 
         if(vm.product.tags){
             vm.product.tagList= vm.product.tags.toString();
