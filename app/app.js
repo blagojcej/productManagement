@@ -4,7 +4,7 @@
 
 (function () {
     "use strict";
-    var app = angular.module("productManagement", ["common.services", "ui.router", "ui.mask", "ui.bootstrap", "productResourceMock"]);
+    var app = angular.module("productManagement", ["common.services", "ui.router", "ui.mask", "ui.bootstrap", "angularCharts", "productResourceMock"]);
 
     app.config(["$stateProvider", "$urlRouterProvider", function ($stateProvider, $urlRouterProvider) {
             $urlRouterProvider.otherwise("/");
