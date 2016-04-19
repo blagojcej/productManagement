@@ -6,6 +6,16 @@
     "use strict";
     var app = angular.module("productManagement", ["common.services", "ui.router", "ui.mask", "ui.bootstrap", "angularCharts", "productResourceMock"]);
 
+    app.config(function ($provide) {
+        $provide.decorator("$exceptionHandler", ["$delegate", function ($delegate) {
+            return function (exception, cause) {
+                exception.message = "Please contact Help Desk! \n Message: " + ex.message;
+                $delegate(exception, cause);
+                alert(exception.message);
+            };
+        }]);
+    });
+
     app.config(["$stateProvider", "$urlRouterProvider", function ($stateProvider, $urlRouterProvider) {
             $urlRouterProvider.otherwise("/");
 
