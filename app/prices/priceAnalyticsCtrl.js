@@ -21,7 +21,7 @@
         var filteredProductsAmount = $filter("limitTo")(orderedProductsAmount, 5);
 
         var chartDataAmount = [];
-        for (var i = 0; filteredProductsAmount.length; i++) {
+        for (var i = 0; i < filteredProductsAmount.length; i++) {
             chartDataAmount.push({
                 x: filteredProductsAmount[i].productName,
                 y: [filteredProductsAmount[i].cost,
@@ -55,7 +55,7 @@
         var filteredProductsPercent = $filter("limitTo")(orderedProductsPercent, 5);
 
         var chartDataPercent = [];
-        for (var i = 0; filteredProductsPercent.length; i++) {
+        for (var i = 0; i < filteredProductsPercent.length; i++) {
             chartDataPercent.push({
                 x: filteredProductsPercent[i].productName,
                 y: [filteredProductsPercent[i].marginPercent]
