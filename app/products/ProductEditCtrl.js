@@ -48,13 +48,18 @@
         };
 
         vm.submit = function (isValid) {
-            if (isValid) {
-                vm.product.$save(function (data) {
-                    toastr.success("Save Successful");
-                })
+            try {
+                if (isValid) {
+                    vm.product.$save(function (data) {
+                        toastr.success("Save Successful");
+                    })
+                }
+                else {
+                    alert("Please correct the validation errors first.")
+                }
             }
-            else {
-                alert("Please correct the validation errors first.")
+            catch (e) {
+                alert(e.message);
             }
         };
 

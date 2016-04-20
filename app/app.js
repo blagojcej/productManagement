@@ -4,7 +4,7 @@
 
 (function () {
     "use strict";
-    var app = angular.module("productManagement", ["common.services", "ui.router", "ui.mask", "ui.bootstrap", "angularCharts", "productResourceMock"]);
+    var app = angular.module("productManagement", ["common.services", "ui.router", "ui.mask", "ui.bootstrap", "angularCharts"]);
 
     app.config(function ($provide) {
         $provide.decorator("$exceptionHandler", ["$delegate", function ($delegate) {
@@ -77,7 +77,17 @@
                         productResource: "productResource",
 
                         products: function (productResource) {
-                            return productResource.query().$promise;
+                            return productResource.query(function (response) {
+                                    //no code needed for success
+                                },
+                                function (response) {
+                                    if (response.status == 404) {
+                                        alert("Error accessing resource: " + response.config.method + " " + response.config.url);
+                                    }
+                                    else {
+                                        alert(response.statusText);
+                                    }
+                                }).$promise;
                         }
                     }
                 })
